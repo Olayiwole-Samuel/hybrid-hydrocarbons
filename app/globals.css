@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  color: #15171c;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* ✅ CHANGED: Updated red-underline with new brand colors */
+  .red-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .red-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    height: 3px;
+    width: 56px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #E3262A, #ff4d5e);
+  }
+  .red-underline--center::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* ✅ CHANGED: Updated gradient-text with new brand colors */
+  .gradient-text {
+    background: linear-gradient(135deg, #E3262A 0%, #ff4d5e 55%, #E3262A 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 1px 0 rgba(17, 17, 17, 0.06);
+  }
+
+  .noise-grid {
+    background-image:
+      linear-gradient(rgba(17, 17, 17, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(17, 17, 17, 0.045) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  /* ✅ ADDED: Brown utility classes for new brand color */
+  .brown-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .brown-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    height: 3px;
+    width: 56px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #4A261C, #6B3A2C);
+  }
+  .brown-underline--center::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .gradient-brown-text {
+    background: linear-gradient(135deg, #4A261C 0%, #6B3A2C 55%, #4A261C 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* Reduced motion: quiet all custom animation for users who ask for it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ✅ CHANGED: Updated selection color with new brand red */
+::selection {
+  background: rgba(227, 38, 42, 0.18);
+  color: #15171c;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f7f5f4;
+}
+::-webkit-scrollbar-thumb {
+  background: #d8d5d4;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  /* ✅ CHANGED: Updated hover color with new brand red */
+  background: #E3262A;
+}
